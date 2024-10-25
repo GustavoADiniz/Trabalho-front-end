@@ -11,67 +11,46 @@
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="./index.js"></script>
     <style>
         body {
             background-color: #ccffcc; /* Verde claro limão */
         }
     </style>
-    <script>
-        $(document).ready(function () {
-            $('#cep-value').on('input', function () {
-                let value = $(this).val().replace(/\D/g, ''); // Remove caracteres não numéricos
-
-                // Formata o CEP
-                if (value.length <= 5) {
-                    $(this).val(value);
-                } else if (value.length <= 8) {
-                    $(this).val(value.slice(0, 5) + '-' + value.slice(5));
-                } else {
-                    $(this).val(value.slice(0, 8));
-                }
-            });
-        });
-    </script>
 </head>
 
 <body class="text-black">
     <main>
-        <h1 class="text-center">Identificador de CEP</h1>
+        <h1 class="text-center">Identificador de DDD</h1>
         <section class="container">
             <div class="row">
                 <div class="col-md-6">
                     <div class="p-3 m-3 bg-white rounded">
-                        <form id="cep-form">
+                        <form id="ddd-form">
                             <div class="input-group mb-3">
-                                <span class="input-group-text" id="cep-label">CEP</span>
-                                <input id="cep-value" type="text" class="form-control" placeholder="Insira o número" aria-label="CEP"
+                                <span class="input-group-text" id="ddd-label">DDD</span>
+                                <input id="ddd-value" type="text" class="form-control" placeholder="Insira o número" aria-label="DDD"
                                     aria-describedby="basic-addon1" required>
-                                <input type="submit" class="btn btn-primary" id="cep-submit" name="cep-submit" />
+                                <input type="submit" class="btn btn-primary" id="ddd-submit" name="ddd-submit" />
                             </div>
-                            <span id="cep-message" class="text-success"></span> <!-- Mensagem de retorno -->
+                            <span id="ddd-message" class="text-success"></span> <!-- Mensagem de retorno -->
                         </form>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="p-3 m-3 bg-white rounded text-black">
-                        <p class="text-center"><b>Informações do CEP</b></p>
+                        <p class="text-center"><b>Informações do DDD</b></p>
 
-                        <span id="company-name-span" for="company-name"><b>Estado:</b></span>
-                        <p id="company-name"></p>
+                        <span id="state-name-span" style="display:none;"><b>Estado:</b></span>
+                        <p id="state-name"></p>
 
-                        <span id="company-city-span" for="company-city"><b>Cidade:</b></span>
+                        <span id="company-city-span" style="display:none;"><b>Cidades:</b></span>
                         <p id="company-city"></p>
-
-                        <span id="company-place-span" for="company-place"><b>Rua:</b></span>
-                        <p id="company-place"></p>
-
-                        <span id="company-zip-span" for="company-zip"><b>Bairro:</b></span>
-                        <p id="company-zip"></p>
                     </div>
                 </div>
             </div>
         </section>
     </main>
+
+    <script src="./index.js"></script>
 </body>
 </html>
